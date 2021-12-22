@@ -1,4 +1,4 @@
-import { GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import Prismic from '@prismicio/client';
@@ -41,6 +41,13 @@ export default function Posts({ posts }: PostsProps) {
       </main>
     </>
   );
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    fallback: true,
+    paths: []
+  }
 }
 
 export const getStaticProps: GetStaticProps = async () => {
